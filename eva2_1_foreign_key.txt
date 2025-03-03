@@ -1,0 +1,130 @@
+MySQL Shell 8.0.41
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \c --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 8
+Server version: 8.0.41 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > create database tdb_eva2;
+Query OK, 1 row affected (0.0223 sec)
+ MySQL  localhost:3306 ssl  SQL > use tdb_eva2;
+Default schema set to `tdb_eva2`.
+Fetching global names, object names from `tdb_eva2` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table bancos(
+                                         -> bancoid int not null auto_increment key,
+                                         -> nombre_banco varchar
+                                         ->
+                                         -> (50) not null);
+Query OK, 0 rows affected (0.0568 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc bancos;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| bancoid      | int         | NO   | PRI | NULL    | auto_increment |
+| nombre_banco | varchar(50) | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+2 rows in set (0.0074 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into  banco(nombre_banco) value("city"), ("santander"), ("hsbc"),("bbva");
+ERROR: 1146 (42S02): Table 'tdb_eva2.banco' doesn't exist
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into  bancos(nombre_banco) value("city"), ("santander"), ("hsbc"),("bbva");
+Query OK, 4 rows affected (0.0219 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select * from bancos;
++---------+--------------+
+| bancoid | nombre_banco |
++---------+--------------+
+|       1 | city         |
+|       2 | santander    |
+|       3 | hsbc         |
+|       4 | bbva         |
++---------+--------------+
+4 rows in set (0.0015 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetas(
+                                         -> tarjetaid int not null auto_increment key,
+                                         -> nombre varchar(50));
+Query OK, 0 rows affected (0.0701 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > inset into tarjetas(nombre) value("mastercard"), ("visa");
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inset into tarjetas(nombre) value("mastercard"), ("visa")' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > inset into tarjetas(nombre) value("mastercard"),("visa");
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inset into tarjetas(nombre) value("mastercard"),("visa")' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > inset into tarjetas(nombre) values("mastercard"),("visa");
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inset into tarjetas(nombre) values("mastercard"),("visa")' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into tarjetas(nombre) values("mastercard"),("visa");
+Query OK, 2 rows affected (0.0164 sec)
+
+Records: 2  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select * from tarjetas;
++-----------+------------+
+| tarjetaid | nombre     |
++-----------+------------+
+|         1 | mastercard |
+|         2 | visa       |
++-----------+------------+
+2 rows in set (0.0012 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table clientes(clienteid int not null auto_increment key,
+                                         -> nombre varchar(50));
+Query OK, 0 rows affected (0.0517 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into clientes(nombre) values("juan, perez"), ("pedrito, juarez"), ("jose, hernandez");
+Query OK, 3 rows affected (0.0171 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetasclientes(tarjetaid int not null auto_increment key,
+                                         -> clienteid int not null, bancoid int not null, tarjetaclienteid int not null auto_increment key ^C
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL >  create table tarjetasclientes(tarjetacleinteid int not null auto_increment key, clienteid int not null, bancoid int not null, tarjetaid int not null);
+Query OK, 0 rows affected (0.0504 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > inser into  tarjetasclientes value(1,1,1),(2,2,2), (3,3,3);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inser into  tarjetasclientes value(1,1,1),(2,2,2), (3,3,3)' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into  tarjetasclientes values(1,1,1),(2,2,2), (3,3,3);
+ERROR: 1136 (21S01): Column count doesn't match value count at row 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into tarjetasclientes(tarjetacleinteid,clienteid,tarjetaid) values(1,1,1),(2,2,2), (3,3,3);
+ERROR: 1364 (HY000): Field 'bancoid' doesn't have a default value
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into tarjetasclientes(tarjetacleinteid,clienteid,tarjetaid, bancoid) values(1,1,1),(2,2,2), (3,3,3);
+ERROR: 1136 (21S01): Column count doesn't match value count at row 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into tarjetasclientes(,clienteid,tarjetaid, bancoid) values(1,1,1),(2,2,2), (3,3,3);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',clienteid,tarjetaid, bancoid) values(1,1,1),(2,2,2), (3,3,3)' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > insert into tarjetasclientes(clienteid,tarjetaid, bancoid) values(1,1,1),(2,2,2), (3,3,3);
+Query OK, 3 rows affected (0.0157 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select * from  tarjetasclientes;
++------------------+-----------+---------+-----------+
+| tarjetacleinteid | clienteid | bancoid | tarjetaid |
++------------------+-----------+---------+-----------+
+|                1 |         1 |       1 |         1 |
+|                2 |         2 |       2 |         2 |
+|                3 |         3 |       3 |         3 |
++------------------+-----------+---------+-----------+
+3 rows in set (0.0013 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select * from clientes where clienteid =2;
++-----------+-----------------+
+| clienteid | nombre          |
++-----------+-----------------+
+|         2 | pedrito, juarez |
++-----------+-----------------+
+1 row in set (0.0014 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > drop table tajetacliente;
+ERROR: 1051 (42S02): Unknown table 'tdb_eva2.tajetacliente'
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > drop table tajetaclientes;
+ERROR: 1051 (42S02): Unknown table 'tdb_eva2.tajetaclientes'
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > drop table tajetasclientes;
+ERROR: 1051 (42S02): Unknown table 'tdb_eva2.tajetasclientes'
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > drop table  tarjetasclientes;
+Query OK, 0 rows affected (0.0384 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetasclientes(tarjetacleinteid int not null auto_increment key, clienteid int not null, bancoid int not null, tarjetaid int not null, foreing key (clienteid) reference clientes(clienteid));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key (clienteid) reference clientes(clienteid))' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetasclientes(tarjetacleinteid int not null auto_increment key, clienteid int not null, bancoid int not null, tarjetaid int not null, foreing key (clienteid) references clientes(clienteid));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key (clienteid) references clientes(clienteid))' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetasclientes(tarjetacleinteid int not null auto_increment key, clienteid int not null, bancoid int not null, tarjetaid int not null, foreing key (clienteid) references clientes(clienteid));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key (clienteid) references clientes(clienteid))' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetasclientes(tarjetacleinteid int not null auto_increment key, clienteid int not null, bancoid int not null, tarjetaid int not null, foreign key (clienteid) references clientes(clienteid));
+Query OK, 0 rows affected (0.0852 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > create table tarjetasclientes(tarjetacleinteid int not null auto_increment key, clienteid int not null, bancoid int not null, tarjetaid int not null, foreign key (clienteid) references clientes(clienteid));
