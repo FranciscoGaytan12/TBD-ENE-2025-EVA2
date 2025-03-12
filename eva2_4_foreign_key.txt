@@ -97,4 +97,4 @@ ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that
 |         11 | Bahrain        | 2006-02-15 04:44:00 |
 +------------+----------------+---------------------+
 10 rows in set (0.0011 sec)
- MySQL  localhost:3306 ssl  tdb_eva2  SQL >
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL >a
