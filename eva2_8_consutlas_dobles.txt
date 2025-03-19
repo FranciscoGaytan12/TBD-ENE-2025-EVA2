@@ -1,0 +1,1480 @@
+MySQL Shell 8.0.41
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \c --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Please provide the password for 'root@localhost': **********
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 8
+Server version: 8.0.41 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| aseguradora        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| prueba1            |
+| sakila             |
+| sys                |
+| tarjeta            |
+| tarjetas           |
+| tdb_eva1           |
+| tdb_eva2           |
+| world              |
++--------------------+
+12 rows in set (0.0025 sec)
+ MySQL  localhost:3306 ssl  SQL > use sakila
+Default schema set to `sakila`.
+Fetching global names, object names from `sakila` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  sakila  SQL > select customer_id, sum(amount) as cantidad from payment group by customer_id
+                                       -> ;
++-------------+----------+
+| customer_id | cantidad |
++-------------+----------+
+|           1 |   118.68 |
+|           2 |   128.73 |
+|           3 |   135.74 |
+|           4 |    81.78 |
+|           5 |   144.62 |
+|           6 |    93.72 |
+|           7 |   151.67 |
+|           8 |    92.76 |
+|           9 |    89.77 |
+|          10 |    99.75 |
+|          11 |   106.76 |
+|          12 |   103.72 |
+|          13 |   131.73 |
+|          14 |   117.72 |
+|          15 |   134.68 |
+|          16 |   118.72 |
+|          17 |    98.79 |
+|          18 |    91.78 |
+|          19 |   125.76 |
+|          20 |   115.70 |
+|          21 |   155.65 |
+|          22 |   113.78 |
+|          23 |   119.70 |
+|          24 |    95.75 |
+|          25 |   115.71 |
+|          26 |   152.66 |
+|          27 |   126.69 |
+|          28 |   111.68 |
+|          29 |   140.64 |
+|          30 |   123.66 |
+|          31 |   104.74 |
+|          32 |   127.71 |
+|          33 |    91.79 |
+|          34 |    89.76 |
+|          35 |   129.68 |
+|          36 |    92.73 |
+|          37 |    95.77 |
+|          38 |   127.66 |
+|          39 |   141.71 |
+|          40 |   110.73 |
+|          41 |   118.75 |
+|          42 |   117.70 |
+|          43 |    99.76 |
+|          44 |   114.74 |
+|          45 |   127.73 |
+|          46 |   142.66 |
+|          47 |   108.78 |
+|          48 |    76.83 |
+|          49 |   130.72 |
+|          50 |   169.65 |
+|          51 |   138.67 |
+|          52 |   107.71 |
+|          53 |   115.70 |
+|          54 |   128.71 |
+|          55 |   100.78 |
+|          56 |   135.70 |
+|          57 |   114.72 |
+|          58 |   115.73 |
+|          59 |   133.73 |
+|          60 |    98.75 |
+|          61 |    58.86 |
+|          62 |    84.77 |
+|          63 |   112.75 |
+|          64 |   100.67 |
+|          65 |   103.78 |
+|          66 |   144.66 |
+|          67 |    99.78 |
+|          68 |    94.78 |
+|          69 |    96.75 |
+|          70 |    80.82 |
+|          71 |   129.70 |
+|          72 |    99.70 |
+|          73 |    97.76 |
+|          74 |   103.73 |
+|          75 |   155.59 |
+|          76 |    77.77 |
+|          77 |   100.72 |
+|          78 |   141.69 |
+|          79 |    84.78 |
+|          80 |   137.70 |
+|          81 |    93.78 |
+|          82 |   130.74 |
+|          83 |   101.75 |
+|          84 |   141.67 |
+|          85 |    87.77 |
+|          86 |   148.67 |
+|          87 |   145.70 |
+|          88 |    87.79 |
+|          89 |   134.68 |
+|          90 |   110.72 |
+|          91 |   113.65 |
+|          92 |   133.72 |
+|          93 |    91.77 |
+|          94 |    79.79 |
+|          95 |    77.82 |
+|          96 |   105.73 |
+|          97 |    58.82 |
+|          98 |   106.75 |
+|          99 |    91.76 |
+|         100 |   102.76 |
+|         101 |    96.76 |
+|         102 |   137.67 |
+|         103 |   146.69 |
+|         104 |    92.76 |
+|         105 |   120.74 |
+|         106 |   100.77 |
+|         107 |   126.70 |
+|         108 |   132.70 |
+|         109 |   107.74 |
+|         110 |    59.86 |
+|         111 |    97.74 |
+|         112 |   133.70 |
+|         113 |   113.71 |
+|         114 |   139.67 |
+|         115 |    91.70 |
+|         116 |   111.73 |
+|         117 |    71.81 |
+|         118 |    82.79 |
+|         119 |   153.66 |
+|         120 |   143.68 |
+|         121 |   109.74 |
+|         122 |   126.68 |
+|         123 |   100.76 |
+|         124 |    73.82 |
+|         125 |   135.68 |
+|         126 |   117.72 |
+|         127 |   107.76 |
+|         128 |   127.68 |
+|         129 |   124.66 |
+|         130 |    93.76 |
+|         131 |   128.70 |
+|         132 |    95.72 |
+|         133 |    98.73 |
+|         134 |    94.77 |
+|         135 |   110.70 |
+|         136 |    62.85 |
+|         137 |   194.61 |
+|         138 |   110.66 |
+|         139 |   113.73 |
+|         140 |    83.82 |
+|         141 |   130.68 |
+|         142 |    94.74 |
+|         143 |    89.78 |
+|         144 |   195.58 |
+|         145 |   108.72 |
+|         146 |   139.71 |
+|         147 |   127.66 |
+|         148 |   216.54 |
+|         149 |   121.74 |
+|         150 |   105.75 |
+|         151 |    92.73 |
+|         152 |    83.79 |
+|         153 |    94.76 |
+|         154 |   130.70 |
+|         155 |   109.75 |
+|         156 |   101.75 |
+|         157 |   113.69 |
+|         158 |   126.68 |
+|         159 |    68.79 |
+|         160 |   106.73 |
+|         161 |   112.70 |
+|         162 |    71.80 |
+|         163 |   122.71 |
+|         164 |    66.84 |
+|         165 |    86.79 |
+|         166 |   123.72 |
+|         167 |   119.68 |
+|         168 |   135.66 |
+|         169 |    95.78 |
+|         170 |   119.74 |
+|         171 |   114.74 |
+|         172 |   145.67 |
+|         173 |   119.71 |
+|         174 |    92.79 |
+|         175 |    98.76 |
+|         176 |   173.63 |
+|         177 |    71.77 |
+|         178 |   194.61 |
+|         179 |   133.71 |
+|         180 |    98.77 |
+|         181 |   174.66 |
+|         182 |    97.74 |
+|         183 |    76.77 |
+|         184 |    90.77 |
+|         185 |    84.77 |
+|         186 |   114.69 |
+|         187 |   159.72 |
+|         188 |    92.75 |
+|         189 |    93.78 |
+|         190 |   110.73 |
+|         191 |    74.80 |
+|         192 |    99.77 |
+|         193 |   109.75 |
+|         194 |    87.82 |
+|         195 |    86.81 |
+|         196 |   151.65 |
+|         197 |   154.60 |
+|         198 |   141.63 |
+|         199 |   103.75 |
+|         200 |   136.73 |
+|         201 |   108.75 |
+|         202 |   103.74 |
+|         203 |    88.80 |
+|         204 |   147.65 |
+|         205 |    80.82 |
+|         206 |   126.73 |
+|         207 |   137.66 |
+|         208 |    91.74 |
+|         209 |   161.68 |
+|         210 |   137.69 |
+|         211 |   151.66 |
+|         212 |    91.80 |
+|         213 |   111.72 |
+|         214 |   116.69 |
+|         215 |    91.74 |
+|         216 |    95.77 |
+|         217 |    98.77 |
+|         218 |    67.82 |
+|         219 |   101.74 |
+|         220 |   114.73 |
+|         221 |   132.72 |
+|         222 |    91.79 |
+|         223 |    80.83 |
+|         224 |    76.78 |
+|         225 |   120.74 |
+|         226 |    87.79 |
+|         227 |    87.76 |
+|         228 |    92.73 |
+|         229 |    93.75 |
+|         230 |   124.67 |
+|         231 |   110.74 |
+|         232 |    95.75 |
+|         233 |    89.77 |
+|         234 |   111.74 |
+|         235 |    93.75 |
+|         236 |   175.58 |
+|         237 |   144.67 |
+|         238 |    94.79 |
+|         239 |   142.66 |
+|         240 |   117.74 |
+|         241 |   122.66 |
+|         242 |   140.68 |
+|         243 |    82.76 |
+|         244 |   129.68 |
+|         245 |   132.68 |
+|         246 |   107.77 |
+|         247 |   104.78 |
+|         248 |    50.85 |
+|         249 |   107.77 |
+|         250 |    73.80 |
+|         251 |   120.69 |
+|         252 |    64.78 |
+|         253 |   127.71 |
+|         254 |   116.68 |
+|         255 |    70.82 |
+|         256 |   112.70 |
+|         257 |   151.63 |
+|         258 |   110.76 |
+|         259 |   168.68 |
+|         260 |   122.69 |
+|         261 |   107.74 |
+|         262 |   119.72 |
+|         263 |   122.71 |
+|         264 |    98.75 |
+|         265 |   133.71 |
+|         266 |   118.72 |
+|         267 |   159.64 |
+|         268 |   123.71 |
+|         269 |   129.70 |
+|         270 |   104.75 |
+|         271 |    68.82 |
+|         272 |    98.80 |
+|         273 |   157.65 |
+|         274 |   152.65 |
+|         275 |   108.70 |
+|         276 |   122.72 |
+|         277 |   144.68 |
+|         278 |    88.74 |
+|         279 |   135.69 |
+|         280 |   118.73 |
+|         281 |    50.86 |
+|         282 |   103.73 |
+|         283 |    86.72 |
+|         284 |   126.72 |
+|         285 |   135.74 |
+|         286 |   117.73 |
+|         287 |   115.71 |
+|         288 |    80.76 |
+|         289 |   142.70 |
+|         290 |   109.72 |
+|         291 |    95.77 |
+|         292 |   118.73 |
+|         293 |   158.69 |
+|         294 |   113.74 |
+|         295 |   162.62 |
+|         296 |   129.70 |
+|         297 |   128.67 |
+|         298 |   101.74 |
+|         299 |   131.70 |
+|         300 |   137.69 |
+|         301 |    92.79 |
+|         302 |   127.71 |
+|         303 |   100.74 |
+|         304 |   115.74 |
+|         305 |   109.75 |
+|         306 |   138.68 |
+|         307 |   134.70 |
+|         308 |   105.75 |
+|         309 |   147.69 |
+|         310 |    97.80 |
+|         311 |   120.77 |
+|         312 |   104.74 |
+|         313 |    89.77 |
+|         314 |   131.67 |
+|         315 |    84.83 |
+|         316 |   132.71 |
+|         317 |   114.72 |
+|         318 |    52.88 |
+|         319 |   132.70 |
+|         320 |    71.80 |
+|         321 |   116.78 |
+|         322 |   128.72 |
+|         323 |   114.69 |
+|         324 |   103.75 |
+|         325 |    91.78 |
+|         326 |    96.75 |
+|         327 |   112.74 |
+|         328 |    90.77 |
+|         329 |   127.68 |
+|         330 |    94.75 |
+|         331 |   122.73 |
+|         332 |   118.72 |
+|         333 |   109.73 |
+|         334 |   135.70 |
+|         335 |    78.77 |
+|         336 |   119.70 |
+|         337 |   143.71 |
+|         338 |   114.72 |
+|         339 |   127.70 |
+|         340 |   119.69 |
+|         341 |   106.77 |
+|         342 |   130.68 |
+|         343 |   114.75 |
+|         344 |    73.82 |
+|         345 |   106.77 |
+|         346 |   155.68 |
+|         347 |   142.70 |
+|         348 |   146.64 |
+|         349 |   138.71 |
+|         350 |    73.77 |
+|         351 |    89.76 |
+|         352 |    99.77 |
+|         353 |    72.82 |
+|         354 |   129.64 |
+|         355 |    72.80 |
+|         356 |   121.70 |
+|         357 |    89.74 |
+|         358 |    80.79 |
+|         359 |   101.75 |
+|         360 |   150.66 |
+|         361 |   100.69 |
+|         362 |   145.68 |
+|         363 |   143.71 |
+|         364 |    95.77 |
+|         365 |   103.77 |
+|         366 |   152.63 |
+|         367 |   101.78 |
+|         368 |   157.65 |
+|         369 |    88.75 |
+|         370 |    70.81 |
+|         371 |   149.65 |
+|         372 |   158.66 |
+|         373 |   161.65 |
+|         374 |   103.72 |
+|         375 |   110.76 |
+|         376 |   110.72 |
+|         377 |    93.74 |
+|         378 |    71.81 |
+|         379 |   106.77 |
+|         380 |   136.64 |
+|         381 |   106.65 |
+|         382 |    91.76 |
+|         383 |   103.73 |
+|         384 |    89.75 |
+|         385 |   101.74 |
+|         386 |   117.71 |
+|         387 |   101.74 |
+|         388 |   124.70 |
+|         389 |   124.74 |
+|         390 |   152.67 |
+|         391 |   104.70 |
+|         392 |    91.77 |
+|         393 |   121.69 |
+|         394 |    84.78 |
+|         395 |    57.81 |
+|         396 |   111.73 |
+|         397 |   105.71 |
+|         398 |    78.84 |
+|         399 |    91.79 |
+|         400 |   124.72 |
+|         401 |    73.79 |
+|         402 |    79.80 |
+|         403 |   166.65 |
+|         404 |   139.70 |
+|         405 |   109.68 |
+|         406 |   122.68 |
+|         407 |   112.73 |
+|         408 |   116.70 |
+|         409 |   104.77 |
+|         410 |   167.62 |
+|         411 |    80.74 |
+|         412 |    85.79 |
+|         413 |    75.79 |
+|         414 |   105.75 |
+|         415 |    93.77 |
+|         416 |   121.69 |
+|         417 |   110.75 |
+|         418 |   107.70 |
+|         419 |    89.75 |
+|         420 |    79.79 |
+|         421 |   119.73 |
+|         422 |    97.74 |
+|         423 |   120.74 |
+|         424 |   110.70 |
+|         425 |   104.74 |
+|         426 |   126.73 |
+|         427 |   114.76 |
+|         428 |    78.80 |
+|         429 |   105.79 |
+|         430 |    79.78 |
+|         431 |    95.77 |
+|         432 |   116.77 |
+|         433 |   133.75 |
+|         434 |   128.73 |
+|         435 |    91.75 |
+|         436 |   144.70 |
+|         437 |    99.77 |
+|         438 |   134.67 |
+|         439 |   151.64 |
+|         440 |    88.78 |
+|         441 |   112.72 |
+|         442 |   118.68 |
+|         443 |    98.78 |
+|         444 |   115.70 |
+|         445 |   102.74 |
+|         446 |   116.69 |
+|         447 |   113.71 |
+|         448 |   135.71 |
+|         449 |    99.80 |
+|         450 |    89.74 |
+|         451 |   128.67 |
+|         452 |   107.68 |
+|         453 |   111.77 |
+|         454 |   151.67 |
+|         455 |    87.76 |
+|         456 |   100.75 |
+|         457 |   114.72 |
+|         458 |    66.81 |
+|         459 |   186.62 |
+|         460 |   109.75 |
+|         461 |    97.72 |
+|         462 |   159.67 |
+|         463 |    91.75 |
+|         464 |    73.84 |
+|         465 |    69.83 |
+|         466 |   104.77 |
+|         467 |   139.71 |
+|         468 |   175.61 |
+|         469 |   177.60 |
+|         470 |   160.68 |
+|         471 |   109.73 |
+|         472 |   141.70 |
+|         473 |   134.66 |
+|         474 |   100.74 |
+|         475 |   103.76 |
+|         476 |    95.78 |
+|         477 |   109.78 |
+|         478 |    86.81 |
+|         479 |   146.69 |
+|         480 |   101.78 |
+|         481 |   115.71 |
+|         482 |   138.71 |
+|         483 |    88.82 |
+|         484 |   139.70 |
+|         485 |   115.71 |
+|         486 |   113.74 |
+|         487 |   119.74 |
+|         488 |    95.78 |
+|         489 |    99.79 |
+|         490 |   117.76 |
+|         491 |   124.73 |
+|         492 |    65.84 |
+|         493 |   112.77 |
+|         494 |   140.69 |
+|         495 |   120.74 |
+|         496 |    88.79 |
+|         497 |   129.72 |
+|         498 |    97.73 |
+|         499 |   123.70 |
+|         500 |   115.72 |
+|         501 |    89.79 |
+|         502 |   138.66 |
+|         503 |   115.68 |
+|         504 |   133.72 |
+|         505 |    97.79 |
+|         506 |   152.65 |
+|         507 |    95.75 |
+|         508 |   127.75 |
+|         509 |   100.80 |
+|         510 |   122.74 |
+|         511 |    99.76 |
+|         512 |   115.74 |
+|         513 |   148.69 |
+|         514 |    74.78 |
+|         515 |   126.72 |
+|         516 |    98.74 |
+|         517 |   105.75 |
+|         518 |   111.74 |
+|         519 |   103.77 |
+|         520 |   134.68 |
+|         521 |    80.77 |
+|         522 |   167.67 |
+|         523 |    93.78 |
+|         524 |    87.81 |
+|         525 |    74.81 |
+|         526 |   221.55 |
+|         527 |    81.76 |
+|         528 |   111.75 |
+|         529 |   118.71 |
+|         530 |    76.77 |
+|         531 |   118.75 |
+|         532 |   152.68 |
+|         533 |   141.67 |
+|         534 |    88.76 |
+|         535 |   135.68 |
+|         536 |   117.75 |
+|         537 |   103.75 |
+|         538 |   117.71 |
+|         539 |    90.78 |
+|         540 |   112.76 |
+|         541 |   108.76 |
+|         542 |    94.82 |
+|         543 |    82.78 |
+|         544 |    98.78 |
+|         545 |    89.79 |
+|         546 |   103.75 |
+|         547 |    99.77 |
+|         548 |    79.81 |
+|         549 |    77.80 |
+|         550 |   159.68 |
+|         551 |    96.74 |
+|         552 |    90.79 |
+|         553 |   107.76 |
+|         554 |   101.78 |
+|         555 |    74.83 |
+|         556 |    83.79 |
+|         557 |    73.76 |
+|         558 |   135.72 |
+|         559 |   110.72 |
+|         560 |   132.70 |
+|         561 |    96.73 |
+|         562 |   109.75 |
+|         563 |   110.71 |
+|         564 |    91.76 |
+|         565 |   126.71 |
+|         566 |   141.66 |
+|         567 |    85.80 |
+|         568 |    66.79 |
+|         569 |   134.68 |
+|         570 |    99.74 |
+|         571 |   121.76 |
+|         572 |   108.75 |
+|         573 |   120.71 |
+|         574 |   109.72 |
+|         575 |   126.71 |
+|         576 |   139.66 |
+|         577 |   117.73 |
+|         578 |    96.78 |
+|         579 |   111.73 |
+|         580 |    99.73 |
+|         581 |   107.73 |
+|         582 |   113.75 |
+|         583 |   117.77 |
+|         584 |   129.70 |
+|         585 |   117.76 |
+|         586 |    64.81 |
+|         587 |   108.74 |
+|         588 |   115.71 |
+|         589 |   129.72 |
+|         590 |   112.75 |
+|         591 |   134.73 |
+|         592 |   111.71 |
+|         593 |   113.74 |
+|         594 |   130.73 |
+|         595 |   117.70 |
+|         596 |    96.72 |
+|         597 |    99.75 |
+|         598 |    83.78 |
+|         599 |    83.81 |
++-------------+----------+
+599 rows in set (0.1283 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select customer_id, sum(amount) as cantidad from payment order order by cantidad;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by cantidad' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select customer_id, sum(amount) as cantidad from payment order by cantidad;
+ERROR: 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sakila.payment.customer_id'; this is incompatible with sql_mode=only_full_group_by
+ MySQL  localhost:3306 ssl  sakila  SQL > select * from customer where customer_id = 248;
++-------------+----------+------------+-----------+------------------------------------+------------+--------+---------------------+---------------------+
+| customer_id | store_id | first_name | last_name | email                              | address_id | active | create_date         | last_update         |
++-------------+----------+------------+-----------+------------------------------------+------------+--------+---------------------+---------------------+
+|         248 |        1 | CAROLINE   | BOWMAN    | CAROLINE.BOWMAN@sakilacustomer.org |        252 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
++-------------+----------+------------+-----------+------------------------------------+------------+--------+---------------------+---------------------+
+1 row in set (0.0199 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select * from customer where customer_id = 526;
++-------------+----------+------------+-----------+------------------------------+------------+--------+---------------------+---------------------+
+| customer_id | store_id | first_name | last_name | email                        | address_id | active | create_date         | last_update         |
++-------------+----------+------------+-----------+------------------------------+------------+--------+---------------------+---------------------+
+|         526 |        2 | KARL       | SEAL      | KARL.SEAL@sakilacustomer.org |        532 |      1 | 2006-02-14 22:04:37 | 2006-02-15 04:57:20 |
++-------------+----------+------------+-----------+------------------------------+------------+--------+---------------------+---------------------+
+1 row in set (0.0109 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.firt_name from customer a;
+ERROR: 1054 (42S22): Unknown column 'a.firt_name' in 'field list'
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name from customer a;
++--------------+-------------+
+| last_name    | first_name  |
++--------------+-------------+
+| SMITH        | MARY        |
+| JOHNSON      | PATRICIA    |
+| WILLIAMS     | LINDA       |
+| JONES        | BARBARA     |
+| BROWN        | ELIZABETH   |
+| DAVIS        | JENNIFER    |
+| MILLER       | MARIA       |
+| WILSON       | SUSAN       |
+| MOORE        | MARGARET    |
+| TAYLOR       | DOROTHY     |
+| ANDERSON     | LISA        |
+| THOMAS       | NANCY       |
+| JACKSON      | KAREN       |
+| WHITE        | BETTY       |
+| HARRIS       | HELEN       |
+| MARTIN       | SANDRA      |
+| THOMPSON     | DONNA       |
+| GARCIA       | CAROL       |
+| MARTINEZ     | RUTH        |
+| ROBINSON     | SHARON      |
+| CLARK        | MICHELLE    |
+| RODRIGUEZ    | LAURA       |
+| LEWIS        | SARAH       |
+| LEE          | KIMBERLY    |
+| WALKER       | DEBORAH     |
+| HALL         | JESSICA     |
+| ALLEN        | SHIRLEY     |
+| YOUNG        | CYNTHIA     |
+| HERNANDEZ    | ANGELA      |
+| KING         | MELISSA     |
+| WRIGHT       | BRENDA      |
+| LOPEZ        | AMY         |
+| HILL         | ANNA        |
+| SCOTT        | REBECCA     |
+| GREEN        | VIRGINIA    |
+| ADAMS        | KATHLEEN    |
+| BAKER        | PAMELA      |
+| GONZALEZ     | MARTHA      |
+| NELSON       | DEBRA       |
+| CARTER       | AMANDA      |
+| MITCHELL     | STEPHANIE   |
+| PEREZ        | CAROLYN     |
+| ROBERTS      | CHRISTINE   |
+| TURNER       | MARIE       |
+| PHILLIPS     | JANET       |
+| CAMPBELL     | CATHERINE   |
+| PARKER       | FRANCES     |
+| EVANS        | ANN         |
+| EDWARDS      | JOYCE       |
+| COLLINS      | DIANE       |
+| STEWART      | ALICE       |
+| SANCHEZ      | JULIE       |
+| MORRIS       | HEATHER     |
+| ROGERS       | TERESA      |
+| REED         | DORIS       |
+| COOK         | GLORIA      |
+| MORGAN       | EVELYN      |
+| BELL         | JEAN        |
+| MURPHY       | CHERYL      |
+| BAILEY       | MILDRED     |
+| RIVERA       | KATHERINE   |
+| COOPER       | JOAN        |
+| RICHARDSON   | ASHLEY      |
+| COX          | JUDITH      |
+| HOWARD       | ROSE        |
+| WARD         | JANICE      |
+| TORRES       | KELLY       |
+| PETERSON     | NICOLE      |
+| GRAY         | JUDY        |
+| RAMIREZ      | CHRISTINA   |
+| JAMES        | KATHY       |
+| WATSON       | THERESA     |
+| BROOKS       | BEVERLY     |
+| KELLY        | DENISE      |
+| SANDERS      | TAMMY       |
+| PRICE        | IRENE       |
+| BENNETT      | JANE        |
+| WOOD         | LORI        |
+| BARNES       | RACHEL      |
+| ROSS         | MARILYN     |
+| HENDERSON    | ANDREA      |
+| COLEMAN      | KATHRYN     |
+| JENKINS      | LOUISE      |
+| PERRY        | SARA        |
+| POWELL       | ANNE        |
+| LONG         | JACQUELINE  |
+| PATTERSON    | WANDA       |
+| HUGHES       | BONNIE      |
+| FLORES       | JULIA       |
+| WASHINGTON   | RUBY        |
+| BUTLER       | LOIS        |
+| SIMMONS      | TINA        |
+| FOSTER       | PHYLLIS     |
+| GONZALES     | NORMA       |
+| BRYANT       | PAULA       |
+| ALEXANDER    | DIANA       |
+| RUSSELL      | ANNIE       |
+| GRIFFIN      | LILLIAN     |
+| DIAZ         | EMILY       |
+| HAYES        | ROBIN       |
+| MYERS        | PEGGY       |
+| FORD         | CRYSTAL     |
+| HAMILTON     | GLADYS      |
+| GRAHAM       | RITA        |
+| SULLIVAN     | DAWN        |
+| WALLACE      | CONNIE      |
+| WOODS        | FLORENCE    |
+| COLE         | TRACY       |
+| WEST         | EDNA        |
+| JORDAN       | TIFFANY     |
+| OWENS        | CARMEN      |
+| REYNOLDS     | ROSA        |
+| FISHER       | CINDY       |
+| ELLIS        | GRACE       |
+| HARRISON     | WENDY       |
+| GIBSON       | VICTORIA    |
+| MCDONALD     | EDITH       |
+| CRUZ         | KIM         |
+| MARSHALL     | SHERRY      |
+| ORTIZ        | SYLVIA      |
+| GOMEZ        | JOSEPHINE   |
+| MURRAY       | THELMA      |
+| FREEMAN      | SHANNON     |
+| WELLS        | SHEILA      |
+| WEBB         | ETHEL       |
+| SIMPSON      | ELLEN       |
+| STEVENS      | ELAINE      |
+| TUCKER       | MARJORIE    |
+| PORTER       | CARRIE      |
+| HUNTER       | CHARLOTTE   |
+| HICKS        | MONICA      |
+| CRAWFORD     | ESTHER      |
+| HENRY        | PAULINE     |
+| BOYD         | EMMA        |
+| MASON        | JUANITA     |
+| MORALES      | ANITA       |
+| KENNEDY      | RHONDA      |
+| WARREN       | HAZEL       |
+| DIXON        | AMBER       |
+| RAMOS        | EVA         |
+| REYES        | DEBBIE      |
+| BURNS        | APRIL       |
+| GORDON       | LESLIE      |
+| SHAW         | CLARA       |
+| HOLMES       | LUCILLE     |
+| RICE         | JAMIE       |
+| ROBERTSON    | JOANNE      |
+| HUNT         | ELEANOR     |
+| BLACK        | VALERIE     |
+| DANIELS      | DANIELLE    |
+| PALMER       | MEGAN       |
+| MILLS        | ALICIA      |
+| NICHOLS      | SUZANNE     |
+| GRANT        | MICHELE     |
+| KNIGHT       | GAIL        |
+| FERGUSON     | BERTHA      |
+| ROSE         | DARLENE     |
+| STONE        | VERONICA    |
+| HAWKINS      | JILL        |
+| DUNN         | ERIN        |
+| PERKINS      | GERALDINE   |
+| HUDSON       | LAUREN      |
+| SPENCER      | CATHY       |
+| GARDNER      | JOANN       |
+| STEPHENS     | LORRAINE    |
+| PAYNE        | LYNN        |
+| PIERCE       | SALLY       |
+| BERRY        | REGINA      |
+| MATTHEWS     | ERICA       |
+| ARNOLD       | BEATRICE    |
+| WAGNER       | DOLORES     |
+| WILLIS       | BERNICE     |
+| RAY          | AUDREY      |
+| WATKINS      | YVONNE      |
+| OLSON        | ANNETTE     |
+| CARROLL      | JUNE        |
+| DUNCAN       | SAMANTHA    |
+| SNYDER       | MARION      |
+| HART         | DANA        |
+| CUNNINGHAM   | STACY       |
+| BRADLEY      | ANA         |
+| LANE         | RENEE       |
+| ANDREWS      | IDA         |
+| RUIZ         | VIVIAN      |
+| HARPER       | ROBERTA     |
+| FOX          | HOLLY       |
+| RILEY        | BRITTANY    |
+| ARMSTRONG    | MELANIE     |
+| CARPENTER    | LORETTA     |
+| WEAVER       | YOLANDA     |
+| GREENE       | JEANETTE    |
+| LAWRENCE     | LAURIE      |
+| ELLIOTT      | KATIE       |
+| CHAVEZ       | KRISTEN     |
+| SIMS         | VANESSA     |
+| AUSTIN       | ALMA        |
+| PETERS       | SUE         |
+| KELLEY       | ELSIE       |
+| FRANKLIN     | BETH        |
+| LAWSON       | JEANNE      |
+| FIELDS       | VICKI       |
+| GUTIERREZ    | CARLA       |
+| RYAN         | TARA        |
+| SCHMIDT      | ROSEMARY    |
+| CARR         | EILEEN      |
+| VASQUEZ      | TERRI       |
+| CASTILLO     | GERTRUDE    |
+| WHEELER      | LUCY        |
+| CHAPMAN      | TONYA       |
+| OLIVER       | ELLA        |
+| MONTGOMERY   | STACEY      |
+| RICHARDS     | WILMA       |
+| WILLIAMSON   | GINA        |
+| JOHNSTON     | KRISTIN     |
+| BANKS        | JESSIE      |
+| MEYER        | NATALIE     |
+| BISHOP       | AGNES       |
+| MCCOY        | VERA        |
+| HOWELL       | WILLIE      |
+| ALVAREZ      | CHARLENE    |
+| MORRISON     | BESSIE      |
+| HANSEN       | DELORES     |
+| FERNANDEZ    | MELINDA     |
+| GARZA        | PEARL       |
+| HARVEY       | ARLENE      |
+| LITTLE       | MAUREEN     |
+| BURTON       | COLLEEN     |
+| STANLEY      | ALLISON     |
+| NGUYEN       | TAMARA      |
+| GEORGE       | JOY         |
+| JACOBS       | GEORGIA     |
+| REID         | CONSTANCE   |
+| KIM          | LILLIE      |
+| FULLER       | CLAUDIA     |
+| LYNCH        | JACKIE      |
+| DEAN         | MARCIA      |
+| GILBERT      | TANYA       |
+| GARRETT      | NELLIE      |
+| ROMERO       | MINNIE      |
+| WELCH        | MARLENE     |
+| LARSON       | HEIDI       |
+| FRAZIER      | GLENDA      |
+| BURKE        | LYDIA       |
+| HANSON       | VIOLA       |
+| DAY          | COURTNEY    |
+| MENDOZA      | MARIAN      |
+| MORENO       | STELLA      |
+| BOWMAN       | CAROLINE    |
+| MEDINA       | DORA        |
+| FOWLER       | JO          |
+| BREWER       | VICKIE      |
+| HOFFMAN      | MATTIE      |
+| CARLSON      | TERRY       |
+| SILVA        | MAXINE      |
+| PEARSON      | IRMA        |
+| HOLLAND      | MABEL       |
+| DOUGLAS      | MARSHA      |
+| FLEMING      | MYRTLE      |
+| JENSEN       | LENA        |
+| VARGAS       | CHRISTY     |
+| BYRD         | DEANNA      |
+| DAVIDSON     | PATSY       |
+| HOPKINS      | HILDA       |
+| MAY          | GWENDOLYN   |
+| TERRY        | JENNIE      |
+| HERRERA      | NORA        |
+| WADE         | MARGIE      |
+| SOTO         | NINA        |
+| WALTERS      | CASSANDRA   |
+| CURTIS       | LEAH        |
+| NEAL         | PENNY       |
+| CALDWELL     | KAY         |
+| LOWE         | PRISCILLA   |
+| JENNINGS     | NAOMI       |
+| BARNETT      | CAROLE      |
+| GRAVES       | BRANDY      |
+| JIMENEZ      | OLGA        |
+| HORTON       | BILLIE      |
+| SHELTON      | DIANNE      |
+| BARRETT      | TRACEY      |
+| OBRIEN       | LEONA       |
+| CASTRO       | JENNY       |
+| SUTTON       | FELICIA     |
+| GREGORY      | SONIA       |
+| MCKINNEY     | MIRIAM      |
+| LUCAS        | VELMA       |
+| MILES        | BECKY       |
+| CRAIG        | BOBBIE      |
+| RODRIQUEZ    | VIOLET      |
+| CHAMBERS     | KRISTINA    |
+| HOLT         | TONI        |
+| LAMBERT      | MISTY       |
+| FLETCHER     | MAE         |
+| WATTS        | SHELLY      |
+| BATES        | DAISY       |
+| HALE         | RAMONA      |
+| RHODES       | SHERRI      |
+| PENA         | ERIKA       |
+| GANNON       | JAMES       |
+| FARNSWORTH   | JOHN        |
+| BAUGHMAN     | ROBERT      |
+| SILVERMAN    | MICHAEL     |
+| SATTERFIELD  | WILLIAM     |
+| ROYAL        | DAVID       |
+| MCCRARY      | RICHARD     |
+| KOWALSKI     | CHARLES     |
+| JOY          | JOSEPH      |
+| GRIGSBY      | THOMAS      |
+| GRECO        | CHRISTOPHER |
+| CABRAL       | DANIEL      |
+| TROUT        | PAUL        |
+| RINEHART     | MARK        |
+| MAHON        | DONALD      |
+| LINTON       | GEORGE      |
+| GOODEN       | KENNETH     |
+| CURLEY       | STEVEN      |
+| BAUGH        | EDWARD      |
+| WYMAN        | BRIAN       |
+| WEINER       | RONALD      |
+| SCHWAB       | ANTHONY     |
+| SCHULER      | KEVIN       |
+| MORRISSEY    | JASON       |
+| MAHAN        | MATTHEW     |
+| COY          | GARY        |
+| BUNN         | TIMOTHY     |
+| ANDREW       | JOSE        |
+| THRASHER     | LARRY       |
+| SPEAR        | JEFFREY     |
+| WAGGONER     | FRANK       |
+| SHELLEY      | SCOTT       |
+| ROBERT       | ERIC        |
+| QUALLS       | STEPHEN     |
+| PURDY        | ANDREW      |
+| MCWHORTER    | RAYMOND     |
+| MAULDIN      | GREGORY     |
+| MARK         | JOSHUA      |
+| JORDON       | JERRY       |
+| GILMAN       | DENNIS      |
+| PERRYMAN     | WALTER      |
+| NEWSOM       | PATRICK     |
+| MENARD       | PETER       |
+| MARTINO      | HAROLD      |
+| GRAF         | DOUGLAS     |
+| BILLINGSLEY  | HENRY       |
+| ARTIS        | CARL        |
+| SIMPKINS     | ARTHUR      |
+| SALISBURY    | RYAN        |
+| QUINTANILLA  | ROGER       |
+| GILLILAND    | JOE         |
+| FRALEY       | JUAN        |
+| FOUST        | JACK        |
+| CROUSE       | ALBERT      |
+| SCARBOROUGH  | JONATHAN    |
+| NGO          | JUSTIN      |
+| GRISSOM      | TERRY       |
+| FULTZ        | GERALD      |
+| RICO         | KEITH       |
+| MARLOW       | SAMUEL      |
+| MARKHAM      | WILLIE      |
+| MADRIGAL     | RALPH       |
+| LAWTON       | LAWRENCE    |
+| BARFIELD     | NICHOLAS    |
+| WHITING      | ROY         |
+| VARNEY       | BENJAMIN    |
+| SCHWARZ      | BRUCE       |
+| HUEY         | BRANDON     |
+| GOOCH        | ADAM        |
+| ARCE         | HARRY       |
+| WHEAT        | FRED        |
+| TRUONG       | WAYNE       |
+| POULIN       | BILLY       |
+| MACKENZIE    | STEVE       |
+| LEONE        | LOUIS       |
+| HURTADO      | JEREMY      |
+| SELBY        | AARON       |
+| GAITHER      | RANDY       |
+| FORTNER      | HOWARD      |
+| CULPEPPER    | EUGENE      |
+| COUGHLIN     | CARLOS      |
+| BRINSON      | RUSSELL     |
+| BOUDREAU     | BOBBY       |
+| BARKLEY      | VICTOR      |
+| BALES        | MARTIN      |
+| STEPP        | ERNEST      |
+| HOLM         | PHILLIP     |
+| TAN          | TODD        |
+| SCHILLING    | JESSE       |
+| MORRELL      | CRAIG       |
+| KAHN         | ALAN        |
+| HEATON       | SHAWN       |
+| GAMEZ        | CLARENCE    |
+| DOUGLASS     | SEAN        |
+| CAUSEY       | PHILIP      |
+| BROTHERS     | CHRIS       |
+| TURPIN       | JOHNNY      |
+| SHANKS       | EARL        |
+| SCHRADER     | JIMMY       |
+| MEEK         | ANTONIO     |
+| ISOM         | DANNY       |
+| HARDISON     | BRYAN       |
+| CARRANZA     | TONY        |
+| YANEZ        | LUIS        |
+| WAY          | MIKE        |
+| SCROGGINS    | STANLEY     |
+| SCHOFIELD    | LEONARD     |
+| RUNYON       | NATHAN      |
+| RATCLIFF     | DALE        |
+| MURRELL      | MANUEL      |
+| MOELLER      | RODNEY      |
+| IRBY         | CURTIS      |
+| CURRIER      | NORMAN      |
+| BUTTERFIELD  | ALLEN       |
+| YEE          | MARVIN      |
+| RALSTON      | VINCENT     |
+| PULLEN       | GLENN       |
+| PINSON       | JEFFERY     |
+| ESTEP        | TRAVIS      |
+| EAST         | JEFF        |
+| CARBONE      | CHAD        |
+| LANCE        | JACOB       |
+| HAWKS        | LEE         |
+| ELLINGTON    | MELVIN      |
+| CASILLAS     | ALFRED      |
+| SPURLOCK     | KYLE        |
+| SIKES        | FRANCIS     |
+| MOTLEY       | BRADLEY     |
+| MCCARTNEY    | JESUS       |
+| KRUGER       | HERBERT     |
+| ISBELL       | FREDERICK   |
+| HOULE        | RAY         |
+| FRANCISCO    | JOEL        |
+| BURK         | EDWIN       |
+| BONE         | DON         |
+| TOMLIN       | EDDIE       |
+| SHELBY       | RICKY       |
+| QUIGLEY      | TROY        |
+| NEUMANN      | RANDALL     |
+| LOVELACE     | BARRY       |
+| FENNELL      | ALEXANDER   |
+| COLBY        | BERNARD     |
+| CHEATHAM     | MARIO       |
+| BUSTAMANTE   | LEROY       |
+| SKIDMORE     | FRANCISCO   |
+| HIDALGO      | MARCUS      |
+| FORMAN       | MICHEAL     |
+| CULP         | THEODORE    |
+| BOWENS       | CLIFFORD    |
+| BETANCOURT   | MIGUEL      |
+| AQUINO       | OSCAR       |
+| ROBB         | JAY         |
+| REA          | JIM         |
+| MILNER       | TOM         |
+| MARTEL       | CALVIN      |
+| GRESHAM      | ALEX        |
+| WILES        | JON         |
+| RICKETTS     | RONNIE      |
+| GAVIN        | BILL        |
+| DOWD         | LLOYD       |
+| COLLAZO      | TOMMY       |
+| BOSTIC       | LEON        |
+| BLAKELY      | DEREK       |
+| SHERROD      | WARREN      |
+| POWER        | DARRELL     |
+| KENYON       | JEROME      |
+| GANDY        | FLOYD       |
+| EBERT        | LEO         |
+| DELOACH      | ALVIN       |
+| CARY         | TIM         |
+| BULL         | WESLEY      |
+| ALLARD       | GORDON      |
+| SAUER        | DEAN        |
+| ROBINS       | GREG        |
+| OLIVARES     | JORGE       |
+| GILLETTE     | DUSTIN      |
+| CHESTNUT     | PEDRO       |
+| BOURQUE      | DERRICK     |
+| PAINE        | DAN         |
+| LYMAN        | LEWIS       |
+| HITE         | ZACHARY     |
+| HAUSER       | COREY       |
+| DEVORE       | HERMAN      |
+| CRAWLEY      | MAURICE     |
+| CHAPA        | VERNON      |
+| VU           | ROBERTO     |
+| TOBIAS       | CLYDE       |
+| TALBERT      | GLEN        |
+| POINDEXTER   | HECTOR      |
+| MILLARD      | SHANE       |
+| MEADOR       | RICARDO     |
+| MCDUFFIE     | SAM         |
+| MATTOX       | RICK        |
+| KRAUS        | LESTER      |
+| HARKINS      | BRENT       |
+| CHOATE       | RAMON       |
+| BESS         | CHARLIE     |
+| WREN         | TYLER       |
+| SLEDGE       | GILBERT     |
+| SANBORN      | GENE        |
+| OUTLAW       | MARC        |
+| KINDER       | REGINALD    |
+| GEARY        | RUBEN       |
+| CORNWELL     | BRETT       |
+| BARCLAY      | ANGEL       |
+| ADAM         | NATHANIEL   |
+| ABNEY        | RAFAEL      |
+| SEWARD       | LESLIE      |
+| RHOADS       | EDGAR       |
+| HOWLAND      | MILTON      |
+| FORTIER      | RAUL        |
+| EASTER       | BEN         |
+| BENNER       | CHESTER     |
+| VINES        | CECIL       |
+| TUBBS        | DUANE       |
+| TROUTMAN     | FRANKLIN    |
+| RAPP         | ANDRE       |
+| NOE          | ELMER       |
+| MCCURDY      | BRAD        |
+| HARDER       | GABRIEL     |
+| DELUCA       | RON         |
+| WESTMORELAND | MITCHELL    |
+| SOUTH        | ROLAND      |
+| HAVENS       | ARNOLD      |
+| GUAJARDO     | HARVEY      |
+| ELY          | JARED       |
+| CLARY        | ADRIAN      |
+| SEAL         | KARL        |
+| MEEHAN       | CORY        |
+| HERZOG       | CLAUDE      |
+| GUILLEN      | ERIK        |
+| ASHCRAFT     | DARRYL      |
+| WAUGH        | JAMIE       |
+| RENNER       | NEIL        |
+| MILAM        | JESSIE      |
+| JUNG         | CHRISTIAN   |
+| ELROD        | JAVIER      |
+| CHURCHILL    | FERNANDO    |
+| BUFORD       | CLINTON     |
+| BREAUX       | TED         |
+| BOLIN        | MATHEW      |
+| ASHER        | TYRONE      |
+| WINDHAM      | DARREN      |
+| TIRADO       | LONNIE      |
+| PEMBERTON    | LANCE       |
+| NOLEN        | CODY        |
+| NOLAND       | JULIO       |
+| KNOTT        | KELLY       |
+| EMMONS       | KURT        |
+| CORNISH      | ALLAN       |
+| CHRISTENSON  | NELSON      |
+| BROWNLEE     | GUY         |
+| BARBEE       | CLAYTON     |
+| WALDROP      | HUGH        |
+| PITT         | MAX         |
+| OLVERA       | DWAYNE      |
+| LOMBARDI     | DWIGHT      |
+| GRUBER       | ARMANDO     |
+| GAFFNEY      | FELIX       |
+| EGGLESTON    | JIMMIE      |
+| BANDA        | EVERETT     |
+| ARCHULETA    | JORDAN      |
+| STILL        | IAN         |
+| SLONE        | WALLACE     |
+| PREWITT      | KEN         |
+| PFEIFFER     | BOB         |
+| NETTLES      | JAIME       |
+| MENA         | CASEY       |
+| MCADAMS      | ALFREDO     |
+| HENNING      | ALBERTO     |
+| GARDINER     | DAVE        |
+| CROMWELL     | IVAN        |
+| CHISHOLM     | JOHNNIE     |
+| BURLESON     | SIDNEY      |
+| BOX          | BYRON       |
+| VEST         | JULIAN      |
+| OGLESBY      | ISAAC       |
+| MCCARTER     | MORRIS      |
+| MALCOLM      | CLIFTON     |
+| LUMPKIN      | WILLARD     |
+| LARUE        | DARYL       |
+| GREY         | ROSS        |
+| WOFFORD      | VIRGIL      |
+| VANHORN      | ANDY        |
+| THORN        | MARSHALL    |
+| TEEL         | SALVADOR    |
+| SWAFFORD     | PERRY       |
+| STCLAIR      | KIRK        |
+| STANFIELD    | SERGIO      |
+| OCAMPO       | MARION      |
+| HERRMANN     | TRACY       |
+| HANNON       | SETH        |
+| ARSENAULT    | KENT        |
+| ROUSH        | TERRANCE    |
+| MCALISTER    | RENE        |
+| HIATT        | EDUARDO     |
+| GUNDERSON    | TERRENCE    |
+| FORSYTHE     | ENRIQUE     |
+| DUGGAN       | FREDDIE     |
+| DELVALLE     | WADE        |
+| CINTRON      | AUSTIN      |
++--------------+-------------+
+599 rows in set (0.0114 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b
+                                       -> where b.customer_id = a.customer_id)
+                                       -> as nombre, a.amount
+                                       -> from payment a limit 50;
++----------+--------+
+| nombre   | amount |
++----------+--------+
+| MARY     |   2.99 |
+| MARY     |   0.99 |
+| MARY     |   5.99 |
+| MARY     |   0.99 |
+| MARY     |   9.99 |
+| MARY     |   4.99 |
+| MARY     |   4.99 |
+| MARY     |   0.99 |
+| MARY     |   3.99 |
+| MARY     |   5.99 |
+| MARY     |   5.99 |
+| MARY     |   4.99 |
+| MARY     |   4.99 |
+| MARY     |   7.99 |
+| MARY     |   2.99 |
+| MARY     |   4.99 |
+| MARY     |   4.99 |
+| MARY     |   0.99 |
+| MARY     |   0.99 |
+| MARY     |   2.99 |
+| MARY     |   2.99 |
+| MARY     |   4.99 |
+| MARY     |   3.99 |
+| MARY     |   0.99 |
+| MARY     |   4.99 |
+| MARY     |   0.99 |
+| MARY     |   0.99 |
+| MARY     |   2.99 |
+| MARY     |   0.99 |
+| MARY     |   1.99 |
+| MARY     |   2.99 |
+| MARY     |   5.99 |
+| PATRICIA |   4.99 |
+| PATRICIA |   2.99 |
+| PATRICIA |   2.99 |
+| PATRICIA |   6.99 |
+| PATRICIA |   4.99 |
+| PATRICIA |   5.99 |
+| PATRICIA |   5.99 |
+| PATRICIA |   5.99 |
+| PATRICIA |   2.99 |
+| PATRICIA |   5.99 |
+| PATRICIA |   4.99 |
+| PATRICIA |  10.99 |
+| PATRICIA |   0.99 |
+| PATRICIA |   6.99 |
+| PATRICIA |   6.99 |
+| PATRICIA |   2.99 |
+| PATRICIA |   0.99 |
+| PATRICIA |   0.99 |
++----------+--------+
+50 rows in set (0.0038 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where cusotmer_id) as apellido a.amount  from payment a limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.amount  from payment a limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where = a.cusotmer_id) as apellido a.amount  from payment a limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= a.cusotmer_id) as apellido a.amount  from payment a limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where  b.cusotmer_id = a.customer_id) as apellido a.amount  from payment a limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.amount  from payment a limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where  b.cusotmer_id = a.customer_id)  a.amount  from payment a limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.amount  from payment a limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where  b.customer_id = a.customer_id)  as apellido a.amount  from payment a limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.amount  from payment a limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where  b.customer_id = a.customer_id)  as apellido a.amount from payment a limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.amount from payment a limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where  b.customer_id = a.customer_id)  as apellido a.amount from payment limit 50;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.amount from payment limit 50' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select (select b.first_name from customer b where b.customer_id = a.customer_id) as nombre,(select b.last_name from customer b where  b.customer_id = a.customer_id)  as apellidos, a.amount from payment a limit 50;
++----------+-----------+--------+
+| nombre   | apellidos | amount |
++----------+-----------+--------+
+| MARY     | SMITH     |   2.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   5.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   9.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   3.99 |
+| MARY     | SMITH     |   5.99 |
+| MARY     | SMITH     |   5.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   7.99 |
+| MARY     | SMITH     |   2.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   2.99 |
+| MARY     | SMITH     |   2.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   3.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   4.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   2.99 |
+| MARY     | SMITH     |   0.99 |
+| MARY     | SMITH     |   1.99 |
+| MARY     | SMITH     |   2.99 |
+| MARY     | SMITH     |   5.99 |
+| PATRICIA | JOHNSON   |   4.99 |
+| PATRICIA | JOHNSON   |   2.99 |
+| PATRICIA | JOHNSON   |   2.99 |
+| PATRICIA | JOHNSON   |   6.99 |
+| PATRICIA | JOHNSON   |   4.99 |
+| PATRICIA | JOHNSON   |   5.99 |
+| PATRICIA | JOHNSON   |   5.99 |
+| PATRICIA | JOHNSON   |   5.99 |
+| PATRICIA | JOHNSON   |   2.99 |
+| PATRICIA | JOHNSON   |   5.99 |
+| PATRICIA | JOHNSON   |   4.99 |
+| PATRICIA | JOHNSON   |  10.99 |
+| PATRICIA | JOHNSON   |   0.99 |
+| PATRICIA | JOHNSON   |   6.99 |
+| PATRICIA | JOHNSON   |   6.99 |
+| PATRICIA | JOHNSON   |   2.99 |
+| PATRICIA | JOHNSON   |   0.99 |
+| PATRICIA | JOHNSON   |   0.99 |
++----------+-----------+--------+
+50 rows in set (0.0051 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > use tdb_eva2;
+Default schema set to `tdb_eva2`.
+Fetching global names, object names from `tdb_eva2` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc venta;
++-------------+------+------+-----+---------+----------------+
+| Field       | Type | Null | Key | Default | Extra          |
++-------------+------+------+-----+---------+----------------+
+| ventaid     | int  | NO   | PRI | NULL    | auto_increment |
+| fecha_venta | date | YES  |     | NULL    |                |
+| clienteid   | int  | NO   | MUL | NULL    |                |
++-------------+------+------+-----+---------+----------------+
+3 rows in set (0.0057 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc clientes;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| clienteid | int         | NO   | PRI | NULL    | auto_increment |
+| nombre    | varchar(50) | NO   |     | NULL    |                |
+| apellido  | varchar(50) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.0050 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.ventaid, a.fecha_venta,(select b.nombre from clientes
+                                         -> where b.clienteid ^C
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.ventaid, a. fecha_venta, (select b.nombre from clientes b where b                                    select a.ventaid, a. fecha_venta, (select b.nombre from clientes b where b.                                   select a.ventaid, a. fecha_venta, (select b.nombre from clientes b where b.                                   select a.ventaid, a. fecha_venta, (select b.nombre from clientes b where b.                                   select a.ventaid, a. fecha_venta, (select b.nombre from clientes b where b.^C
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc prducto;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| productoid | int          | NO   | PRI | NULL    | auto_increment |
+| nombre     | varchar(50)  | NO   |     | NULL    |                |
+| precio     | decimal(7,2) | NO   |     | NULL    |                |
+| unidad     | varchar(20)  | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.0069 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.cantidad, (select b.nombre from prducto b wehreb.productoid = a.productoid) as producto from venta_detalle;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'wehreb.productoid = a.productoid) as producto from venta_detalle' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.cantidad, (select b.nombre from prducto b wehreb.productoid = a.productoid) as producto,  from venta_detalle;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'wehreb.productoid = a.productoid) as producto,  from venta_detalle' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.cantidad, (select b.nombre from prducto b whereb.productoid = a.productoid) as producto from venta_detalle a;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'whereb.productoid = a.productoid) as producto from venta_detalle a' at line 1
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.cantidad, (select b.nombre from prducto b where b.productoid = a.productoid) as producto from venta_detalle a;
+ERROR: 1054 (42S22): Unknown column 'a.nombre' in 'field list'
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc venta_detalle;
++----------------+------+------+-----+---------+----------------+
+| Field          | Type | Null | Key | Default | Extra          |
++----------------+------+------+-----+---------+----------------+
+| ventadetalleid | int  | NO   | PRI | NULL    | auto_increment |
+| ventaid        | int  | NO   | MUL | NULL    |                |
+| productoid     | int  | NO   | MUL | NULL    |                |
+| cantidad       | int  | NO   |     | NULL    |                |
++----------------+------+------+-----+---------+----------------+
+4 rows in set (0.0042 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.cantidad, (select b.nombre from venta_detalle b where b.productoid = a.productoid) as producto from producto a;
+ERROR: 1146 (42S02): Table 'tdb_eva2.producto' doesn't exist
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.cantidad, (select b.nombre from venta_detalle b where b.productoid = a.productoid) as producto from prducto a;
+ERROR: 1054 (42S22): Unknown column 'a.cantidad' in 'field list'
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc prducot;
+ERROR: 1146 (42S02): Table 'tdb_eva2.prducot' doesn't exist
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > desc prducto;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| productoid | int          | NO   | PRI | NULL    | auto_increment |
+| nombre     | varchar(50)  | NO   |     | NULL    |                |
+| precio     | decimal(7,2) | NO   |     | NULL    |                |
+| unidad     | varchar(20)  | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.0040 sec)
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL > select a.nombre, a.precio, (select b.nombre from venta_detalle b where b.productoid = a.productoid) as producto from prducto a;
+ERROR: 1054 (42S22): Unknown column 'b.nombre' in 'field list'
+ MySQL  localhost:3306 ssl  tdb_eva2  SQL >
+MySQL  localhost:3306 ssl  tbd_eva2  SQL > select a.productoid, (select b.nombre from producto b where b.productoid = a.productoid) as producto from venta_detalle a;
++------------+----------+
+| productoid | producto |
++------------+----------+
+|          2 | Tablet   |
+|          2 | Tablet   |
+|          2 | Tablet   |
+|          3 | Celular  |
++------------+----------+
+4 rows in set (0.0181 sec)
+ MySQL  localhost:3306 ssl  tbd_eva2  SQL > select a.productoid, (select b.nombre from producto b where b.productoid = a.productoid) as producto,  from venta_detalle a;
